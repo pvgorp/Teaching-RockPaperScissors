@@ -1,7 +1,9 @@
 package nl.tue.apom.l3;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import nl.tue.apom.l3.ai.AutomaticPlayer;
+import nl.tue.apom.l3.ai.AutomaticPlayerV1;
 import nl.tue.apom.l3.items.*;
 
 /**
@@ -19,11 +21,12 @@ public class GameV2 {
   }
 
   public static void main(String[] args) {
-    String howto = "Please enter twice one of {paper,rock,scissors} to play";
+    String howto = "Please enter once one of {paper,rock,scissors} to play"; // CHANGED
     System.out.println(howto);
     Scanner s = new Scanner(System.in);
     Item i1 = null;
     Item i2 = null;
+    AutomaticPlayer player2= new AutomaticPlayerV1(); // NEW 
     GameResult result = GameResult.UNDECIDED;
     int round= 1;
     do {
@@ -31,21 +34,20 @@ public class GameV2 {
       do {
         try {
           System.out.println("Player 1: please enter your choice");
-          i1 = ItemFactory.toItem(s.next());
-          System.out.println("Player 2: please enter your choice");
-          i2 = ItemFactory.toItem(s.next());
+          i1 = ItemFactory.toItem(s.next());          
+          i2 = player2.play(); // CHANGED
         } catch (InvalidInputException e) {
           System.out.println(e);
           System.out.println(howto);
         }
       } while (i1 == null || i2 == null);
-      System.out.println("Player 1 selected " + i1);
-      System.out.println("Player 2 selected " + i2);
+      System.out.println("You selected " + i1); // CHANGED
+      System.out.println("Your computer opponent selected " + i2); // CHANGED
       if (i1.beats(i2)) {
-        System.out.println("Player 1 wins");
+        System.out.println("You win");  // CHANGED
         result = GameResult.P1WON;
       } else if (i2.beats(i1)) {
-        System.out.println("Player 2 wins");
+        System.out.println("You loose");
         result = GameResult.P2WON;
       } else {
         System.out.println("Nobody wins");

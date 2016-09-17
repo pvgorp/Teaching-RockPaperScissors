@@ -1,7 +1,5 @@
 package nl.tue.apom.l3;
 
-import java.util.Scanner;
-
 import nl.tue.apom.l3.ai.AutomaticPlayer;
 import nl.tue.apom.l3.ai.AutomaticPlayerV1;
 import nl.tue.apom.l3.items.*;

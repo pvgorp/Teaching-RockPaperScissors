@@ -19,4 +19,9 @@ public class AutomaticPlayerV1 implements AutomaticPlayer {
       return new Paper();
     }
   }
+  
+  @Override
+  public void considerOpponentItem(Item itemOfOther) {
+    // do nothing (ignore)
+  }
 }

@@ -5,10 +5,10 @@ import nl.tue.apom.l3.ai.AutomaticPlayerV1;
 import nl.tue.apom.l3.items.*;
 
 /**
- * Rock/paper/scissors game where two computer bots compete without user input
+ * Rock/paper/scissors game where two computer bots compete without user input.
+ * Bot behavior is completely random and ignores what other players/bots do.
  * 
  * @author pvgorp
- *
  */
 public class GameV4 {
 
